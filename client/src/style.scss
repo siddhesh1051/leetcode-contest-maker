@@ -1,10 +1,12 @@
 .app {
-  height: 100vh;
+  min-height: 100vh;
   padding: 0 100px;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
+  background-color: #1A1A1A;
+  color: white;
 
   .addHome {
     padding: 10px;
@@ -12,12 +14,12 @@
     cursor: pointer;
     border: none;
     background-color: teal;
-    color: white;
+    color: black;
     font-weight: bold;
   }
 
   h1 {
-    margin-bottom: 50px;
+    margin-bottom: 20px;
   }
 
   .books {
@@ -55,25 +57,33 @@
   .form {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 15px;
 
     input {
-      width: 250px;
+      width: 300px;
       padding: 10px;
+      color: white;
       border: 1px solid gray;
+      background-color: black;
     }
 
     textarea {
+      width: 300px;
+      height: 100px;
       padding: 10px;
+      color: white;
+      border: 1px solid gray;
+      background-color: black;
+
     }
 
     button {
       border: none;
       padding: 10px;
-      background-color: white;
-      background-color: teal;
+      background-color: #16A34A;
       color: white;
       font-weight: bold;
+      font-size: 1.2rem;
       cursor: pointer;
     }
   }

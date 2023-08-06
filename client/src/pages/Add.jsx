@@ -21,7 +21,7 @@ const Add = () => {
     e.preventDefault();
     try {
       await axios.post("http://localhost:8800/contests", contest);
-      navigate("/v1");
+      navigate("/");
     } catch (err) {
       console.log(err);
       setError(true)
@@ -29,8 +29,8 @@ const Add = () => {
   };
 
   return (
-    <div className="form">
-      <h1>Add New Contest</h1>
+    <form className="form" onSubmit={handleClick}>
+      <h1 className="text-3xl">Add New Contest</h1>
       <input
               className="flex justify-start items-start p-4 w-[100%] rounded-lg border-2 border-gray-300"
 
@@ -38,28 +38,29 @@ const Add = () => {
         placeholder="Contest Title"
         name="title"
         onChange={handleChange}
+        required
       />
       <textarea
         className="flex justify-start items-start p-4 w-[100%] rounded-lg border-2 border-gray-400"
         type="text"
         placeholder="Contest Description"
         name="desc"
-        
+        required
         onChange={handleChange}
       />
       <input
               className="flex justify-start items-start p-4 w-[100%] rounded-lg border-2 border-gray-300"
-
+        required
         type="number"
         placeholder="Contest Duration in Minutes"
         name="duration"
         onChange={handleChange}
       />
      
-      <button className="rounded-lg" onClick={handleClick}>Add</button>
+      <button  type="submit" className="rounded-lg bg-green-600">Add</button>
       {error && "Something went wrong!"}
       <Link to="/">See all Contests</Link>
-    </div>
+    </form>
   );
 };
 

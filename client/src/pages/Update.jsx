@@ -33,11 +33,11 @@ const Update = () => {
   };
 
   return (
-    <div className="form">
-      <h1>Update the Contest</h1>
+    <form className="form" onSubmit={handleClick}>
+      <h1 className="text-3xl text-black">Update the Contest</h1>
       <input
               className="flex justify-start items-start p-4 w-[100%] rounded-lg border-2 border-gray-300"
-
+        required
         type="text"
         placeholder="Contest Title"
         name="title"
@@ -48,21 +48,21 @@ const Update = () => {
         type="text"
         placeholder="Contest Description"
         name="desc"
-        
+        required="true"
         onChange={handleChange}
       />
       <input
               className="flex justify-start items-start p-4 w-[100%] rounded-lg border-2 border-gray-300"
-
+        required="true"
         type="number"
         placeholder="Contest Duration in Minutes"
         name="duration"
         onChange={handleChange}
       />
-      <button  className="rounded-lg"  onClick={handleClick}>Update</button>
+      <button type="submit"  className="rounded-lg bg-black ">Update</button>
       {error && "Something went wrong!"}
       <Link to="/">See all Contests</Link>
-    </div>
+    </form>
   );
 };
 
