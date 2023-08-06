@@ -34,7 +34,7 @@ const Update = () => {
 
   return (
     <form className="form" onSubmit={handleClick}>
-      <h1 className="text-3xl text-black">Update the Contest</h1>
+      <h1 className="text-3xl text-white">Update the Contest</h1>
       <input
               className="flex justify-start items-start p-4 w-[100%] rounded-lg border-2 border-gray-300"
         required

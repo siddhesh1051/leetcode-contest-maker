@@ -55,7 +55,7 @@ const Add = () => {
         placeholder="Contest Duration in Minutes"
         name="duration"
         onChange={handleChange}
-      />
+      />          
      
       <button  type="submit" className="rounded-lg bg-green-600">Add</button>
       {error && "Something went wrong!"}

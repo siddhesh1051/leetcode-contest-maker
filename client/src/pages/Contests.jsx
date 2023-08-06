@@ -33,14 +33,14 @@ const Contests = () => {
 
   return (
     <div className='bg-[#1A1A1A] px-2'>
-      <div className='flex flex-col mt-5 justify-center  items-center px-4 '>
+      <div className='flex flex-col mt-5c justify-center  items-center px-4 '>
         <div className='flex flex-col w-[100%]'>
 
 
 
 
 
-          <div className='text-4xl font-medium text-white'>Contests</div>
+          <div className='text-4xl font-medium text-white mt-4'>Contests</div>
           <div className='flex flex-col items-start justify-start mt-5'>
             <div className='flex flex-col items-center justify-center hover:scale-105 active:scale-95 duration-200'>
               <Link to='/add'>
