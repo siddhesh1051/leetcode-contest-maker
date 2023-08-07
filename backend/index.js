@@ -28,6 +28,40 @@ app.get("/contests", (req, res) => {
     return res.json(data);
   });
 });
+
+app.get("/contests/:contestId", (req, res) => {
+  console.log("hello");
+  const { contestId } = req.params;
+  console.log(contestId);
+  const contestQuery = "SELECT * FROM books WHERE id = ?";
+  const questionsQuery = "SELECT * FROM questions WHERE contest_id = ?";
+  
+  db.query(contestQuery, [contestId], (contestErr, contestData) => {
+    if (contestErr) {
+      console.log(contestErr);
+      return res.status(500).json({ error: "Server error" });
+    }
+    
+    if (contestData.length === 0) {
+      return res.status(404).json({ error: "Contest not found" });
+    }
+
+    db.query(questionsQuery, [contestId], (questionsErr, questionsData) => {
+      if (questionsErr) {
+        console.log(questionsErr);
+        return res.status(500).json({ error: "Server error" });
+      }
+
+      const contest = {
+        ...contestData[0],
+        questions: questionsData,
+      };
+
+      return res.json(contest);
+    });
+  });
+});
+
 // ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '1234';
 
 app.post("/contests", (req, res) => {
