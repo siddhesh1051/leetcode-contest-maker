@@ -32,7 +32,7 @@ const Contests = () => {
   };
 
   return (
-    <div className='bg-[#1A1A1A] px-2'>
+    <div className='bg-[#1A1A1A] px-2 '>
       <div className='flex flex-col mt-5c justify-center  items-center px-4 '>
         <div className='flex flex-col w-[100%]'>
 

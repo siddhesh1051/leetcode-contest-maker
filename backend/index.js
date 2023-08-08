@@ -30,9 +30,9 @@ app.get("/contests", (req, res) => {
 });
 
 app.get("/contests/:contestId", (req, res) => {
-  console.log("hello");
+  // console.log("hello");
   const { contestId } = req.params;
-  console.log(contestId);
+  // console.log(contestId);
   const contestQuery = "SELECT * FROM books WHERE id = ?";
   const questionsQuery = "SELECT * FROM questions WHERE contest_id = ?";
   
@@ -82,10 +82,25 @@ app.post("/contests", (req, res) => {
   });
 });
 
+app.post("/contests/:contestId/questions", (req, res) => {
+  const contestId = req.params.contestId;
+  const { LC_number, name, link } = req.body;
+
+  const q = "INSERT INTO questions (`contest_id`, `LC_number`, `name`, `link`) VALUES (?, ?, ?, ?)";
+
+  const values = [contestId, LC_number, name, link];
+
+  db.query(q, values, (err, data) => {
+    if (err) return res.send(err);
+    return res.json(data);
+  });
+});
+
+
 app.delete("/contests/:id", (req, res) => {
   const contestId = req.params.id;
   // console.log(contestId);
-  const q = " DELETE FROM books WHERE id = ? ";
+  const q = "DELETE FROM books WHERE id = ? ";
 
   db.query(q, [contestId], (err, data) => {
     if (err) return res.send(err);
@@ -95,7 +110,7 @@ app.delete("/contests/:id", (req, res) => {
 
 app.put("/contests/:id", (req, res) => {
   const contestId = req.params.id;
-  console.log(contestId);
+  // console.log(contestId);
 
   const q = "UPDATE books SET `title`= ?, `desc`= ?, `duration`= ? WHERE id = ?";
 
